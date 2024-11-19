@@ -6,28 +6,119 @@
     <title>Opening Soon</title>
     <link rel="icon" href="favoriteicon.ico">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 20%;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #111, #222);
+            color: #e0e0e0;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(255, 71, 71, 0.4);
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        h1 {
+            color: #ff4747;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 4px 6px rgba(255, 71, 71, 0.6);
+        }
+        p {
+            color: #b5b5b5;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
         }
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: rgba(31, 31, 31, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            width: 350px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transform: scale(0.95);
+            opacity: 0;
+            animation: fadeIn 1s forwards 0.3s;
         }
         .form-group {
-            margin: 10px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 15px;
+            background-color: #333;
+            border: 2px solid #444;
+            border-radius: 10px;
+            color: #e0e0e0;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        input:focus {
+            border-color: #ff4747;
+            box-shadow: 0 0 5px rgba(255, 71, 71, 0.8);
         }
         .btn {
-            padding: 10px 20px;
-            background-color: #4CAF50;
+            width: 100%;
+            padding: 15px;
+            background-color: #ff4747;
             color: white;
             border: none;
+            border-radius: 10px;
             cursor: pointer;
+            font-size: 1.1rem;
+            transition: transform 0.3s, background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 71, 71, 0.6);
         }
         .btn:hover {
-            background-color: #45a049;
+            background-color: #e63946;
+            transform: scale(1.05);
+        }
+        .btn:active {
+            background-color: #d12f3a;
+            transform: scale(0.98);
+        }
+        .btn:focus {
+            outline: none;
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            font-size: 0.8rem;
+            color: #b5b5b5;
+            opacity: 0.7;
+        }
+        .footer a {
+            color: #ff4747;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -48,6 +139,10 @@
         </form>
     </div>
 
+    <div class="footer">
+        <p>© 2024 <a href="#">Signalghost</a> - All Rights Reserved</p>
+    </div>
+
     <script>
         function checkLogin(event) {
             event.preventDefault();
@@ -55,7 +150,7 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            if (username === 'admin' && password === 'admin') {
+            if (username === 'laith' && password === 'laith123') {
                 window.location.href = 'h.html';
             } else {
                 alert('Incorrect credentials!');
