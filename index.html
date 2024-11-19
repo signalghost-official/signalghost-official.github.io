@@ -125,7 +125,7 @@
 <body>
 
     <div class="container">
-        <h1>Opening Soon</h1>
+        <h1 id="mainHeading">Opening Soon</h1>
         <p>Sign in to access the admin page</p>
 
         <form id="signin-form" onsubmit="return checkLogin(event)">
@@ -144,13 +144,21 @@
     </div>
 
     <script>
+        // Check for custom heading in localStorage
+        const customHeading = localStorage.getItem('newHeading');
+        if (customHeading) {
+            document.getElementById('mainHeading').textContent = customHeading;
+        }
+
+        // Handle login
         function checkLogin(event) {
             event.preventDefault();
-            
+
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
             if (username === 'laith' && password === 'laith123') {
+                localStorage.setItem('isLoggedIn', true);
                 window.location.href = 'h.html';
             } else {
                 alert('Incorrect credentials!');
